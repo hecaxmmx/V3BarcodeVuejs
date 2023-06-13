@@ -16,14 +16,16 @@ export default {
     const error = ref(null)
 
     /**
-     * print on screen a single barcode
+     * Print on screen a single barcode.
+     * @returns {void}
      */
     function toScreenCode() {
       ctx.emit('printBarcode', props.value)
     }
 
     /**
-     * Send a single barcode to Printer
+     * Send a single barcode to Printer.
+     * @returns {void}
      */
     async function toPrinterCode() {
       const datax = {
@@ -51,15 +53,14 @@ export default {
     }
 
     /**
-     * v-bind to disable all component
+     * V-bind to disable all component.
+     * @returns {void}
      */
     watch(() => props.disabled, (currentValue, oldValue) => {
       bindDisabled.value = currentValue ? { disabled: 'disabled' } : {}
     })
 
     return {
-      data,
-      error,
       toScreenCode,
       toPrinterCode,
       bindDisabled

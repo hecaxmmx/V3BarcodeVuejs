@@ -17,8 +17,9 @@ export default {
     const error = ref(null)
 
     /**
-     * print to screen multiple barcodes
+     * Print to screen multiple barcodes.
      * @param {object} event
+     * @returns {void}
      */
     function splitToStringTextarea(event) {
       textlines.value = text.value.split('\n')
@@ -26,7 +27,8 @@ export default {
     }
 
     /**
-     * sent to printer all barcodes
+     * Sent to printer all barcodes.
+     * @returns {void}
      */
     async function toPrinter() {
       const arrCodes = []
@@ -57,8 +59,9 @@ export default {
     }
 
     /**
-     * clear textarea with all barcodes
+     * Clear textarea with all barcodes.
      * @param {object} event
+     * @returns {void}
      */
     function clearMultipleBarcodes(event) {
       textlines.value = []
@@ -67,7 +70,8 @@ export default {
     }
 
     /**
-     * v-bind to disable all compoenent
+     * V-bind to disable all components.
+     * @returns {void}
      */
     watch(() => props.disabled, (currentValue, oldValue) => {
       bindDisabled.value = currentValue ? { disabled: 'disabled' } : {}

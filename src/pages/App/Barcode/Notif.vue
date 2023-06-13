@@ -3,7 +3,8 @@
 const emit = defineEmits(['clickDeleteMsg'])
 
 /**
- * Hide the notification message
+ * Hide the notification message.
+ * @returns {void}
  */
 function buttonHide() {
   emit('clickDeleteMsg')

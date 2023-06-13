@@ -1,4 +1,6 @@
 <script>
+/* eslint no-undef: off -- JSBarcode was added on main.ts */
+
 // importing hyperscript from vue to create the HTML element
 import { h, onMounted } from 'vue'
 

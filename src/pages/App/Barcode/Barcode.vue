@@ -1,4 +1,5 @@
 <script>
+
 import { ref } from 'vue'
 import { VColumns, VColumn } from '@pathscale/vue3-ui'
 import BarcodeGenerator from './BarcodeGenerator'
@@ -30,8 +31,9 @@ export default {
     }
 
     /**
-     * Generate a single barcode on screen or send to printer
-     * @param {string|Proxy} single a barcode or a Proxy with msg
+     * Generate a single barcode on screen or send to printer.
+     * @param {string | object} single a barcode or a Proxy with msg
+     * @returns {void}
      */
     function generate(single) {
       if (typeof single === 'string') {
@@ -53,8 +55,9 @@ export default {
     }
 
     /**
-     * Generate multiple barcodes on screen or send to printer
-     * @param {string|Proxy} multiple muliple barcodes or a Proxy with msg
+     * Generate multiple barcodes on screen or send to printer.
+     * @param {string | object} multiple muliple barcodes or a Proxy with msg
+     * @returns {void}
      */
     function generateMultiple(multiple) {
       if (Array.isArray(multiple)) {
@@ -76,8 +79,9 @@ export default {
     }
 
     /**
-     * Enable or disable switch for single or multiple barcode
+     * Enable or disable switch for single or multiple barcode.
      * @param {object} event
+     * @returns {void}
      */
     function onEnableMultiple(event) {
       isDisableSingle.value = !isDisableSingle.value
