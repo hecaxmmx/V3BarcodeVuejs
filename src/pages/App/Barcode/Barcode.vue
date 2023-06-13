@@ -19,8 +19,8 @@ export default {
     const mbvalue = ref([])
     const componentKey = ref(0)
     const showNotif = ref(false)
-    const notifMsg = ref("")
-    const classTypeNotif = ref("is-success")
+    const notifMsg = ref('')
+    const classTypeNotif = ref('is-success')
 
     // https://michaelnthiessen.com/key-changing-technique/
     // https://michaelnthiessen.com/force-re-render/
@@ -34,18 +34,18 @@ export default {
      * @param {string|Proxy} single a barcode or a Proxy with msg
      */
     function generate(single) {
-      if (typeof single === "string") {
+      if (typeof single === 'string') {
         sbvalue.value = single
       } else {
         single.value.results.forEach(elm => {
           if (elm.type === 'success') {
             showNotif.value = true
             notifMsg.value = elm.msg
-            classTypeNotif.value = "is-success"
+            classTypeNotif.value = 'is-success'
           } else {
             showNotif.value = true
             notifMsg.value = 'Error on printing'
-            classTypeNotif.value = "is-danger"
+            classTypeNotif.value = 'is-danger'
           }
         })
       }
@@ -64,20 +64,20 @@ export default {
           if (elm.type === 'success') {
             showNotif.value = true
             notifMsg.value = elm.msg
-            classTypeNotif.value = "is-success"
+            classTypeNotif.value = 'is-success'
           } else {
             showNotif.value = true
             notifMsg.value = 'Error on printing'
-            classTypeNotif.value = "is-danger"
+            classTypeNotif.value = 'is-danger'
           }
         })
       }
-      
+
     }
 
     /**
      * Enable or disable switch for single or multiple barcode
-     * @param {Object} event 
+     * @param {object} event
      */
     function onEnableMultiple(event) {
       isDisableSingle.value = !isDisableSingle.value
@@ -114,9 +114,9 @@ export default {
     <h1 class="title">
       Barcode Generator
     </h1>
-    <Notif v-show="showNotif" :class="classTypeNotif" @click-delete-msg="closeMsg">
+    <notif v-show="showNotif" :class="classTypeNotif" @click-delete-msg="closeMsg">
       {{ (showNotif) ? notifMsg : '' }}
-    </Notif>
+    </notif>
     <div class="tile is-ancestor">
       <div class="tile is-4 is-vertical is-parent">
         <div class="tile is-child box">
@@ -134,8 +134,7 @@ export default {
           <p>
             <barcode-single
               @print-barcode="generate($event)"
-              :disabled="isDisableSingle"
-            />
+              :disabled="isDisableSingle"/>
           </p>
         </div>
         <div class="tile is-child box">
@@ -143,8 +142,7 @@ export default {
           <p>
             <barcode-multiple
               :disabled="isDisableMultiple"
-              @print-barcodes="generateMultiple($event)"
-            />
+              @print-barcodes="generateMultiple($event)"/>
           </p>
         </div>
       </div>
