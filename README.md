@@ -44,4 +44,13 @@ npm run build
 ```
 npm run lint
 ```
+
 # V3BarcodeVuejs
+
+Search under src/App/Barcode to add new features or fix some bug.
+
+In public you find the api.php where data is fetch for printers.
+
+## Dependencies
+
+This project use Vue3-ui (Bulma css components), Vue3-Starter and JSBarcode 
