@@ -6,6 +6,8 @@ export default {
   name: 'BarcodeSingle',
   components: { VInput, VField, VButton },
   props: {
+    header: [String],
+    subHeader: [String],
     value: [String, Number],
     disabled: [Boolean]
   },
@@ -35,6 +37,14 @@ export default {
             format: 'CODE128'
           }
         ]
+      }
+
+      if (props.header !== '') {
+        datax.data[0].header = props.header
+      }
+
+      if (props.subHeader !== '') {
+        datax.data[0].subheader = props.subHeader
       }
 
       await fetch(process.env.VUE_APP_API_SERVER, {

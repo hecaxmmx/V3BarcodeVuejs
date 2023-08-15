@@ -6,6 +6,8 @@ export default {
   name: 'BarcodeMultiple',
   components: { VTextarea, VField, VButton },
   props: {
+    header: [String],
+    subHeader: [String],
     disabled: [Boolean]
   },
   emits: ['printBarcodes'],
@@ -34,14 +36,21 @@ export default {
       const arrCodes = []
       const barcodesArr = text.value.split('\n')
 
-      barcodesArr.forEach(elm => {
+      barcodesArr.forEach((elm, idx) => {
         arrCodes.push({
           barcode: elm,
           format: 'CODE128'
         })
+        if (props.header !== '') {
+          arrCodes[idx].header = props.header
+        }
+
+        if (props.subHeader !== '') {
+          arrCodes[idx].subheader = props.subHeader
+        }
       })
 
-      const datax = { data: [ arrCodes ] }
+      const datax = { data: arrCodes }
 
       await fetch(process.env.VUE_APP_API_SERVER, {
         method: 'POST',

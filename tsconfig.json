@@ -9,6 +9,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "sourceMap": false,
     "baseUrl": ".",
     "paths": { "~/*": ["src/*"] },
